@@ -5,7 +5,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import { connectDB } from './config/db.js'; 
 import userRoutes from './routes/userRoute.js';
-import paymentRoutes from './routes/paymentRoute.js'; // Assuming this exists
+import paymentRoutes from './routes/paymentRoute.js';
 
 
 const notFound = (req, res, next) => {
@@ -14,7 +14,7 @@ const notFound = (req, res, next) => {
     next(error);
 };
 
-// 2. Global Error Handler
+// Global Error Handler
 const errorHandler = (err, req, res, next) => {
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
     res.status(statusCode);
@@ -31,7 +31,7 @@ const app = express();
 
 app.use(express.json());
 
-// CORS setup to allow requests from your frontend
+// cors to allow requests from front end
 app.use(cors({
     origin: process.env.NODE_ENV === 'production' ? null : 'http://localhost:5173', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -41,7 +41,6 @@ app.use(cors({
 //routes
 app.use('/api/users', userRoutes); 
 app.use('/api/payments', paymentRoutes);
-// --- Error Middleware Chain (Must be placed AFTER all routes) ---
 app.use(notFound);
 app.use(errorHandler);
 
@@ -51,3 +50,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running in ${process.env.NODE_ENV || 'development'} mode on port http://localhost:${PORT}`);
 });
+
