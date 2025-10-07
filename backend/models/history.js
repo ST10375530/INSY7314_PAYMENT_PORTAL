@@ -13,12 +13,12 @@ const historySchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    currency: {  // ADD THIS FIELD
+    currency: { 
         type: String,
         enum: ['ZAR', 'USD', 'GBP', 'JPY'],
         default: 'ZAR'
     },
-    originalAmount: {  // ADD THIS FIELD
+    originalAmount: {
         type: Number,
         required: true
     },
@@ -33,4 +33,5 @@ const historySchema = new mongoose.Schema({
     }
 }, {
     timestamps: true
+
 });
