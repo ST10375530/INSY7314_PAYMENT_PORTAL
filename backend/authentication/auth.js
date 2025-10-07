@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-// CORRECTED: Using the singular folder structure (model) and capitalized file (User.js)
 import User from '../models/user.js'; 
 
 // checks for a valid JWT in request header
@@ -46,3 +45,4 @@ const protect = async (req, res, next) => {
 
 // Use ES Module export syntax
 export { protect };
+
