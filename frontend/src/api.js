@@ -14,7 +14,6 @@ const api = axios.create({
 // Request Interceptor: Attaches JWT token from local storage to every protected request
 api.interceptors.request.use(
     (config) => {
-        // FIX: Changed token key from 'token' to 'token' to match BankApp.jsx
         const token = localStorage.getItem('token'); 
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;

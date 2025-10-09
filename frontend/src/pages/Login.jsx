@@ -17,7 +17,7 @@ export default function Login(){
     setError(''); // Clear previous errors
     setIsLoading(true);
 
-    console.log('🔐 Login attempt with:', { 
+    console.log('Login attempt with:', { 
       accountNumber: form.accountNumber, 
       password: form.password 
     });
@@ -59,36 +59,10 @@ export default function Login(){
     }
   };
 
-  const testWithKnownUser = () => {
-    const testData = {
-      accountNumber: "9876543210", // Use the exact account number you registered with
-      password: "Test123!" // Use the exact password you registered with
-    };
-    setForm(testData);
-    setError('Test data loaded. Click Login.');
-  };
 
   return (
     <div className="form-card">
       <h2>Welcome Back</h2>
-      
-      {/* Temporary test button */}
-      <button 
-        type="button" 
-        onClick={testWithKnownUser}
-        style={{
-          padding: '10px', 
-          background: '#6b7280', 
-          color: 'white', 
-          border: 'none', 
-          borderRadius: '8px', 
-          marginBottom: '15px',
-          width: '100%'
-        }}
-      >
-        Load Test User Data
-      </button>
-      
       <form onSubmit={submit}>
         <input 
           name="accountNumber" 
