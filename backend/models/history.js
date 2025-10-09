@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 const historySchema = new mongoose.Schema({
     sender: {
         type: mongoose.Schema.Types.ObjectId, 
@@ -13,12 +15,12 @@ const historySchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    currency: { 
+    currency: {  
         type: String,
         enum: ['ZAR', 'USD', 'GBP', 'JPY'],
         default: 'ZAR'
     },
-    originalAmount: {
+    originalAmount: { 
         type: Number,
         required: true
     },
@@ -33,5 +35,6 @@ const historySchema = new mongoose.Schema({
     }
 }, {
     timestamps: true
-
 });
+const History = mongoose.models.History || mongoose.model('History', historySchema);
+export default History; 

@@ -35,7 +35,7 @@ const paymentSchema = new mongoose.Schema({
         default: 'pending'
     },
     exchangeRate: {
-        type: Number, // Store the exchange rate used for this transaction
+        type: Number, // Store the exchange rate used for a transaction
         required: true
     },
     convertedAmount: {
